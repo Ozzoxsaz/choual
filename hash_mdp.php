@@ -1,0 +1,1 @@
+<?php $pass_hache = password_hash($_POST['mdp'], PASSWORD_BCRYPT); ?>
