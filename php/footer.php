@@ -37,6 +37,6 @@
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <script src="js/menu.js"></script>
-
+<script src="js/déroulant_menu.js"></script>
 </body>
 </html>

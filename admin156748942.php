@@ -117,12 +117,13 @@ if( !is_dir(TARGET) ) {
   
 
     if(empty($erreurs)) {
-        $requete = $base->prepare('INSERT INTO article SET titre = :titre, contenu = :contenu, auteur = :auteur, jour = NOW(), imge = :imge');
+        $requete = $base->prepare('INSERT INTO article 
+              SET titre = :titre, contenu = :contenu, auteur = :auteur, jour = NOW(), imge = :imge');
         $requete->execute(array(
             ':titre' => $_POST['titre'], 
             ':contenu' => $_POST['contenu'], 
             ':auteur' => $_POST['auteur'],
-            ':imge' => $nomImage,
+            ':imge' => $nomImage
           ));
     }
 

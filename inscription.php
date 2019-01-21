@@ -8,6 +8,7 @@ if(isset($_SESSION['auth']) && $_SESSION['auth']['role']== 'admin'){
 else{
     include('php/menu.php');
 }
+require('./php/db.php');
 
 if(isset($_POST)) {
     $erreurs = array();
@@ -25,19 +26,19 @@ if(isset($_POST)) {
   
 
 if(empty($erreurs)) {
-    $requete = $base->prepare('INSERT INTO inscription SET ndc = :ndc, contenu = :contenu, auteur = :auteur, jour = NOW(), imge = :imge');
+    $requete = $base->prepare('INSERT INTO inscription 
+    SET ndc = :ndc, mdp = :mdp, email = :email');
     $requete->execute(array(
         ':ndc' => $_POST['ndc'], 
         ':mdp' => $_POST['mdp'], 
-        ':email' => $_POST['email'],
-        
+        ':email' => $_POST['email']
       ));
 }
 
  ?>
 <h1 class="typo" align="center">Inscription</h1>
 <div class="container">
-<form>
+<form method="post" target="inscription.php">
 <div class="form-group">
     <label for="exampleInputEmail1">Nom de compte :</label>
     <input name="ndc"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre nom de compte">
